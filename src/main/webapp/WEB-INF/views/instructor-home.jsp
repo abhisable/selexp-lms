@@ -30,6 +30,7 @@
 					<th>Instructor name</th>
 					<th>Instructor exp</th>
 					<th>Instructor email</th>
+					<th>Courses</th>
 					<th>Delete Instructor</th>
 				</tr>
 			</thead>
@@ -39,7 +40,6 @@
 					<td>${instructor.name}</td>
 					<td>${instructor.instructorExp}</td>
 					<td>${instructor.email}</td>
-					<td></td>
 					<td>
 						<table class="table">
 							<thead class="table-info">

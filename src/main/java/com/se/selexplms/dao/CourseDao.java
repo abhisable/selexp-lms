@@ -1,4 +1,4 @@
-package com.se.selexplms.controller;
+package com.se.selexplms.dao;
 
 import org.hibernate.Hibernate;
 import org.hibernate.Session;

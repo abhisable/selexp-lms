@@ -3,6 +3,8 @@ package com.se.selexplms.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,11 +20,15 @@ public class LMSController {
 
 	@Autowired
 	InstructorDAO insDao;
+	
+//	@Autowired
+//	DataSource dataSource;
 
 	@RequestMapping("/getInstructors")
 	public String getInstructors(Model model) {
 		List<Instructor> allInstructor = insDao.getAllInstructor();
 		model.addAttribute("instructorList", allInstructor);
+		//System.out.println(dataSource);
 		return "instructor-home";
 	}
 
