@@ -1,10 +1,13 @@
 package com.se.selexplms.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -24,6 +27,9 @@ public class Instructor {
 	
 	@Column(name="instructor_email")
 	private String email;
+	
+	@OneToMany(mappedBy = "instructor")
+	private List<Course> courses;
 	
 	public int getId() {
 		return id;
@@ -53,6 +59,12 @@ public class Instructor {
 	public String toString() {
 		return "Instructor [id=" + id + ", name=" + name + ", instructorExp=" + instructorExp + ", email=" + email
 				+ "]";
+	}
+	public List<Course> getCourses() {
+		return courses;
+	}
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
 	}
 	
 	

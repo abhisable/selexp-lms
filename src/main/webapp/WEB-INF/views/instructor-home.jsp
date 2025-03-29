@@ -39,11 +39,31 @@
 					<td>${instructor.name}</td>
 					<td>${instructor.instructorExp}</td>
 					<td>${instructor.email}</td>
+					<td></td>
 					<td>
-					   <form:form action="delete/${instructor.id}" method="GET">
-							<button type="submit" class="btn btn-danger">delete</button>
-						</form:form>
+						<table class="table">
+							<thead class="table-info">
+								<tr>
+									<th>Course Name</th>
+									<th>Course Duration</th>
+								</tr>
+							</thead>
+							<c:forEach var="course" items="${instructor.courses}">
+								<tr>
+									<td>${course.courseName}</td>
+									<td>${course.courseDuration}</td>
+									<td><form:form action="show/${course.id}"
+											method="GET">
+											<button type="submit" class="btn btn-success">show</button>
+										</form:form></td>
+									<br>
+								</tr>
+							</c:forEach>
+						</table>
 					</td>
+					<td><form:form action="delete/${instructor.id}" method="GET">
+							<button type="submit" class="btn btn-danger">delete</button>
+						</form:form></td>
 					<br>
 				</tr>
 			</c:forEach>

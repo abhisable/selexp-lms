@@ -2,6 +2,7 @@ package com.se.selexplms.dao;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class InstructorDAOImpl implements InstructorDAO {
 		org.hibernate.query.Query<Instructor> query = session.createQuery("from Instructor", Instructor.class);
 
 		List<Instructor> resultList = query.list();
-		System.out.println(resultList);
+		for(Instructor ins:resultList)Hibernate.initialize(ins.getCourses());
 		return resultList;
 	}
 
@@ -41,7 +42,9 @@ public class InstructorDAOImpl implements InstructorDAO {
 	@Transactional
 	public Instructor getInstructorById(int id) {
 		Session session = factory.getCurrentSession();
-		return session.get(Instructor.class, id);
+		Instructor instructor = session.get(Instructor.class, id);
+		Hibernate.initialize(instructor.getCourses());
+		return instructor;
 	}
 
 	@Override
