@@ -19,7 +19,7 @@
 	<br>
 	<hr>
 	<c:forEach var="lession" items="${course.lessions}">
-	   <a href="${lession.lessionLink}">${lession.lessionName}</a>
+	   <a href="/selexp-lms/lession?id=${lession.lessionId}">${lession.lessionName}</a><br/>
 	</c:forEach>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

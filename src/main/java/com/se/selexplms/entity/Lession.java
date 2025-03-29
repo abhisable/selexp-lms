@@ -20,7 +20,7 @@ public class Lession {
 	@Column(name="lession_name")
 	private String lessionName;
 	
-	@Column(name="lession_link")
+	@Column(name="lession_link",length = 1000)
 	private String lessionLink;
 	
 	@ManyToOne
