@@ -30,6 +30,8 @@
 						aria-current="page" href="/selexp-lms/getInstructors">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						href="/selexp-lms/addInstructorPage">AddInstructor</a></li>
+						<li class="nav-item"><a class="nav-link"
+						href="/selexp-lms/addCourse">AddCourse</a></li>
 
 
 				</ul>

@@ -1,4 +1,4 @@
-package com.se.selexplms.dao;
+package com.se.selexplms.controller;
 
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.se.selexplms.entity.Course;
-import com.se.selexplms.entity.Lession;
 
 import jakarta.transaction.Transactional;
 
 @Repository
-public class CourseDaoImpl implements CourseDao{
+public class CourseDao {
 
 	@Autowired
 	SessionFactory factory;
@@ -23,22 +22,6 @@ public class CourseDaoImpl implements CourseDao{
 		Course course = session.get(Course.class, courseId);
 		Hibernate.initialize(course.getLessions());
 		return course;
-		
-	}
-
-	@Transactional
-	public Lession getLessionById(int lessionId) {
-		Session session = factory.getCurrentSession();
-		Lession lession=session.get(Lession.class, lessionId);
-		return lession;
-	}
-
-	@Override
-	@Transactional
-	public void saveCourse(Course course) {
-		Session session = factory.getCurrentSession();
-		session.persist(course);
-		
 		
 	}
 	

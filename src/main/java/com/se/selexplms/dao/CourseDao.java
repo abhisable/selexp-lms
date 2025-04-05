@@ -9,4 +9,6 @@ public interface CourseDao {
 
 	public Lession getLessionById(int lessionId);
 
+	public void saveCourse(Course course);
+
 }
